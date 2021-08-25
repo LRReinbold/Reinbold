@@ -1,0 +1,113 @@
+// seleciona o elemento raiz do contexto atual
+:root {
+    // cria variável `default-font`, variáveis CSS é a forma melhor indicada para estilização de web components e também 
+    // torna-se útil para manipulação de valores por javascript, além de ser um excelente maneira de reaproveitamento de 
+    // estilos em arquivos CSS.
+    --default-font: sans-serif
+}
+ 
+// seleciona o elemento body
+body {
+    // define a forma de apresentação deste elemento como flex
+    display: flex;          
+    // define que os elementos filhos deste serão apresentados em colunas 
+    flex-direction: column; 
+    // define que a altura deste elemento é 100% da altura do view port
+    height: 100vh;          
+    // remove a margem interna do elemento
+    padding: 0;             
+    // remove a margem do elemento
+    margin: 0;              
+}
+ 
+// seleciona o elemento header
+header {
+    // define a cor de fundo do elemento
+    background: #24252A;              
+    // define a margem interna do elemento como sendo igual ao tamanho de um M maiúsculo
+    padding: 1em;                     
+    // define a forma de apresentação deste elemento como flex
+    display: flex;                    
+    // define a cor da fonte do elemento e seus filhos
+    color: #FFFFFF;                   
+    // define a fonte do elemento e seus filhos como sendo a mesma da variável `default-font`
+    font-family: var(--default-font); 
+    
+    // seleciona os elemento button que sejam filhos do elemento header
+    button {
+        // remove a borda do elemento
+        border: 0 none;           
+        // define a cor de fundo do elemento como sendo transparente 
+        background: transparent;  
+        // define a cor da letra do elemento
+        color: #FFFFFF;           
+        // define que a transição de estilos do elemento é de 300ms
+        transition: .3s;          
+        // define a margem interna como sendo topo e baixo igual a meio M e direita e esquerda como 1 M
+        padding: 0.5em 1em;       
+        // define o ponteiro do mouse como `pointer` quando estiver sobre este elemento
+        cursor: pointer;          
+        
+        // seleciona os elemento button quando estão com o mouse sobre e que são filhos do elemento header
+        &:hover {
+            // define arredondamento da borda em 25px
+            border-radius: 25px;  
+            // define a cor de fundo do elemento 
+            background: #0385A8;  
+        }
+    }
+    
+    // seleciona os elementos div filhos do elemento header
+    div {
+        // define a forma de apresentação deste elemento como flex
+        display: flex;       
+        // define que cada um dos elementos irá ocupar uma fração do espaço disponível
+        flex: 1 1 0;         
+        // define que o conteúdo destes elementos devem cer centralizados verticalmente
+        align-items: center; 
+        
+        // seleciona a primeira div filha do elemento header
+        &:first-child {
+            // define que os conteúdos deste elemento devam alinhar-se no início (neste caso à esquerda)
+            justify-content: flex-start; 
+            // define que o texto deste elemento devam ser em caixa alta
+            text-transform: uppercase;   
+        }
+        
+        // seleciona a última div filha do elemento header
+        &:last-child {
+            // define que os conteúdos deste elemento devam alinhar-se no final (neste caso à direita)
+            justify-content: flex-end; 
+        }
+    }
+}
+ 
+// seleciona o elemento main
+main {
+    // define a forma de apresentação deste elemento como flex
+    display: flex;             
+    // define as margens internas como sendo do mesmo tamanho de um M maiúsculo
+    padding: 1em;              
+    // define que este deva ocupar uma fração do espaço disponível de seu elemento pai (neste caso o body)
+    flex: 1 1 0;               
+    // define que se necessário os elementos filhos deste devam quebrar linhas
+    flex-wrap: wrap;           
+    // define que os elementos filhos deste devam ser centralizado horizontalmente
+    justify-content: center;   
+    // define que os elementos filhos deste devam ser alinhados verticalmente no início (neste caso no topo)
+    align-content: flex-start; 
+    // define a cor de fundo do elemento
+    background: #20B2AA;       
+    // define que se necessário o elemento apresentará barras de rolagem
+    overflow: auto;            
+ 
+    // seleciona os elementos filhos diretos do elemento main
+    > * {
+        // define as bordas do elemento como sendo da espessura de um pixel, e que estas sejam sólidas e cinza
+        border: 1px solid #D4D4D4; 
+        // define que este elemento deva ocupar 30% do espaço disponível em seu elemento pai (neste caso main)
+        flex: 0 0 30%;             
+        // define que a margem deste elemento é de 0.25 do tamanho de um M maiúsculo
+        margin: .25em;             
+    }
+}

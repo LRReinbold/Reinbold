@@ -1,0 +1,77 @@
+* {
+    box-sizing: border-box;
+}
+
+:host {
+    background-color: #FFFFFF;
+    display: inline-block;
+    box-shadow: 2px 2px 2px #00000066;
+    min-width: 400px;
+    padding: 1em;
+    font-family: var(--default-font);
+    border: 1px solid #909090;
+    border-radius: 15px;
+}
+
+div {
+    padding: 1em;
+    height: 100%;
+
+    &.actions {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    label {
+        display: block;
+        padding-left: .8em;
+    }
+
+    input {
+        border: 1px solid #909090;
+        padding: 1em;
+        border-radius: 15px;
+        width: 100%;
+        outline: none;
+    }
+}
+
+.actions {
+    &[data-tipo='adicionar'] {
+        button.bt-alterar {
+            display: none;
+        }
+    }
+
+    &[data-tipo='alterar'] {
+        button.bt-adicionar {
+            display: none;
+        }
+    }
+
+    button {
+        border: 0 none;
+        background-color: transparent;
+        color: #FFF;
+        transition: .3s;
+        padding: 0.5em 1em;
+        cursor: pointer;
+        background: #0385A8;
+        border-radius: 25px;
+        margin-left: 1em;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        &.bt-remover {
+            background: transparent;
+            color: #F44336;
+
+            &:hover {
+                background: #F44336;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
